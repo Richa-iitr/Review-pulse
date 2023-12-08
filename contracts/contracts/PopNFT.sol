@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MyNFT is ERC721, Ownable {
     string public baseURI;
+    uint256 private tokenId;
 
     constructor(
         string memory _name,
@@ -19,7 +20,8 @@ contract MyNFT is ERC721, Ownable {
         return baseURI;
     }
 
-    function mint(address to, uint256 tokenId) public onlyOwner {
+    function mint(address to) public onlyOwner {
+        tokenId = tokenId + 1;
         _mint(to, tokenId);
     }
 
