@@ -9,18 +9,6 @@ contract ReviewToken is ERC20{
 
     address public owner;
     
-
-    struct Product {
-        string name;
-        string description;
-        uint256 price;
-        uint256 id;
-        PopNFT[200] nfts;
-    }
-
-
-
-
     modifier onlyOwner() {
         require(msg.sender == owner);
         _;
@@ -29,7 +17,7 @@ contract ReviewToken is ERC20{
         _mint(msg.sender, 1000000000000000000000000000);
     }
 
-    function mint(address to, uint256 amount) internal onlyOwner{
+    function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
 
