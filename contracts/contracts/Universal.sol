@@ -14,7 +14,7 @@ contract Universal {
     struct Product {
         string name;
         uint256 id;
-        address nft;
+        ProofOfPurchaseNFT nft;
     }
 
     //pdt id mapped with Product struct
@@ -46,22 +46,25 @@ contract Universal {
     function addProduct(
         string memory name,
         uint256 id,
-        address nft,
         string memory aadhar
     ) public {
         require(aadharToAddress[aadhar] != address(0x00), "not registered");
         Product memory pdt;
         pdt.name = name;
         pdt.id = id;
-        pdt.nft = nft;
+        pdt.nft = new ProofOfPurchaseNFT(name, "RVT");
         products[id] = pdt;
     }
 
-    function buyProduct(uint256 productId, string calldata aadhar) public {
+    function buyProduct(
+        uint256 productId,
+        string calldata aadhar,
+        string memory uri
+    ) public {
         require(aadharToAddress[aadhar] != address(0x00), "not registered");
-        address nft = products[productId].nft;
-        IPopNFT(nft).mint(aadharToAddress[aadhar]);
-        uint256 tokenId = IPopNFT(nft).getTokenId();
+        ProofOfPurchaseNFT nft = products[productId].nft;
+        nft.mint(aadharToAddress[aadhar], uri);
+        uint256 tokenId = nft.getTokenId();
         popNfts[productId][msg.sender] = tokenId;
     }
 
@@ -72,7 +75,6 @@ contract Universal {
         staked[msg.sender] = true;
         noOfReviews[productId] += 1;
         emit productReviewed(productId, msg.sender);
-        
     }
 
     function getNoOfReview(uint256 productId) public view returns (uint256) {
@@ -81,7 +83,7 @@ contract Universal {
 
     function setClaimThreshold(uint256 productId, uint256 threshold) public {
         require(msg.sender == daoGovernor, "Only DAO can call");
-        claimThreshold[productId] =  threshold;
+        claimThreshold[productId] = threshold;
         emit thresholdChanged(claimThreshold[productId]);
     }
 
