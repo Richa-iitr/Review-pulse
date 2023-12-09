@@ -1,37 +1,43 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  // const MyTokenContract = await ethers.getContractFactory("MyToken");
-  // const MyToken = await MyTokenContract.deploy();
+  const MyTokenContract = await ethers.getContractFactory("MyToken");
+  const MyToken = await MyTokenContract.deploy();
 
   // await MyToken.deployed();
 
   // console.log(`MyToken deployed to ${MyToken.address}`);
-  // const myTokenAddress = MyToken.address;
-  const daoGovernorContract = await ethers.getContractFactory("MyGovernor");
-  const daoGovernor = await daoGovernorContract.deploy(
-    "0xD0De75fee8D22797c4Bb87EA17b1C23c84Dc4760"
-  );
 
-  await daoGovernor.deployed();
-
-  console.log(`daoGovernor deployed to ${daoGovernor.address}`);
-  const govTokenContract = await ethers.getContractFactory("GovernanceToken");
-  const govToken = await govTokenContract.deploy();
-
-  await govToken.deployed();
-
-  console.log(`govToken deployed to ${govToken.address}`);
-  // const universalContract = await ethers.getContractFactory("Universal");
-  // const universal = await universalContract.deploy(
-  //   daoGovernor.address,
-  //   govToken.address,
-  //   myTokenAddress
+  // const TimeLockContract = await ethers.getContractFactory("TimeLock");
+  // const TimeLock = await TimeLockContract.deploy(
+  //   "1",
+  //   ["0xFe643b54727d53C49835f9f6c1a2B9861E741d98"],
+  //   ["0xFe643b54727d53C49835f9f6c1a2B9861E741d98"],
+  //   "0xFe643b54727d53C49835f9f6c1a2B9861E741d98"
   // );
 
-  // await universal.deployed();
+  const myTokenAddress = MyToken.address;
+  // const daoGovernorContract = await ethers.getContractFactory("MyGovernor");
+  // const daoGovernor = await daoGovernorContract.deploy(
+  //   MyToken.address,
+  //   TimeLock.address
+  // );
 
-  // console.log(`universal deployed to ${universal.address}`);
+  // await daoGovernor.deployed();
+
+  // console.log(`daoGovernor deployed to ${daoGovernor.address}`);
+  // const govTokenContract = await ethers.getContractFactory("GovernanceToken");
+  // const govToken = await govTokenContract.deploy();
+
+  // await govToken.deployed();
+
+  // console.log(`govToken deployed to ${govToken.address}`);
+  const universalContract = await ethers.getContractFactory("Universal");
+  const universal = await universalContract.deploy(myTokenAddress);
+
+  await universal.deployed();
+
+  console.log(`universal deployed to ${universal.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

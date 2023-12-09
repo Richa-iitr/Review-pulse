@@ -24,6 +24,12 @@ module.exports = {
       runs: 200,
     },
   },
+  etherscan: {
+    apiKey: {
+      polygonMumbai: process.env.POLYGON_MUMBAI_API_KEY,
+      scrollSepolia: process.env.SCROLL_SEPOLIA_API_KEY,
+    },
+  },
   networks: {
     linea: {
       url: `https://linea-goerli.blockpi.network/v1/rpc/public`,
@@ -34,9 +40,13 @@ module.exports = {
       accounts: [PRIVATE_KEY],
     },
     scrollSepolia: {
-      url: "https://sepolia-rpc.scroll.io/" || "",
+      url: "https://scroll-sepolia.blockpi.network/v1/rpc/public" || "",
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
+    lilypad: {
+      url: "http://testnet.lilypad.tech:8545",
+      accounts: [PRIVATE_KEY],
+    }
   },
 };
