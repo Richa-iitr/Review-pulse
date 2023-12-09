@@ -26,7 +26,7 @@ module.exports = {
   },
   networks: {
     linea: {
-      url: `https://linea-goerli.infura.io/v3/${INFURA_API_KEY}`,
+      url: `https://linea-goerli.blockpi.network/v1/rpc/public`,
       accounts: [PRIVATE_KEY],
     },
     polygon: {
