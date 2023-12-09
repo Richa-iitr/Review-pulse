@@ -1,0 +1,50 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.top > h2 {
+  font-weight: 500;
+}
+.close-btn {
+  all: unset;
+  cursor: pointer;
+}
+.modal-content {
+  margin-bottom: 1rem;
+}
+.field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.field-container > label {
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+.field-container > input,
+.field-container > textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.field-container > input:focus,
+.field-container > textarea:focus {
+  border-color: #86b7fe;
+}
+.field-container > input::placeholder {
+  font-size: 0.93rem;
+  letter-spacing: 1.5px;
+}
+
+.field-container > input[type="file"] {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  color: #495057;
+  font-size: 1rem;
+  line-height: 1.5;
+}
