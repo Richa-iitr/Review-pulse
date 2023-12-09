@@ -24,9 +24,15 @@ module.exports = {
       runs: 200,
     },
   },
+  etherscan: {
+    apiKey: {
+      polygonMumbai: process.env.POLYGON_MUMBAI_API_KEY,
+      scrollSepolia: process.env.SCROLL_SEPOLIA_API_KEY,
+    },
+  },
   networks: {
     linea: {
-      url: `https://linea-goerli.infura.io/v3/${INFURA_API_KEY}`,
+      url: `https://linea-goerli.blockpi.network/v1/rpc/public`,
       accounts: [PRIVATE_KEY],
     },
     polygon: {
@@ -34,7 +40,7 @@ module.exports = {
       accounts: [PRIVATE_KEY],
     },
     scrollSepolia: {
-      url: "https://sepolia-rpc.scroll.io/" || "",
+      url: "https://scroll-sepolia.blockpi.network/v1/rpc/public" || "",
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },

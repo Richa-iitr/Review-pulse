@@ -42,6 +42,7 @@ const useDealClient = () => {
         id: id,
         aadhar: nullifier,
       },
+      msgValue: ethers.utils.parseEther("0.01"),
     };
     try {
       const response = await runContractFunction({
@@ -110,6 +111,6 @@ const useDealClient = () => {
       console.log(error);
     }
   };
-  return { registerAadhar, getProducts };
+  return { registerAadhar, getProducts, addProduct, buyProduct };
 };
 export default useDealClient;

@@ -24,6 +24,7 @@ contract Universal {
     mapping(string => address) private aadharToAddress;
     mapping(address => uint256) private addressToStakeamt;
     mapping(address => bool) private staked;
+    mapping(uint256 => uint256) public productValuePool;
     mapping(uint256 => uint256) public claimThreshold;
     // address public daoGovernor;
     // GovernanceToken public govToken;
@@ -53,13 +54,16 @@ contract Universal {
         string memory name,
         uint256 id,
         string memory aadhar
-    ) public {
+    ) public payable {
+        require(msg.value > 0, "not enough value sent");
         require(aadharToAddress[aadhar] != address(0x00), "not registered");
         Product memory pdt;
         pdt.name = name;
         pdt.id = id;
         pdt.nft = new ProofOfPurchaseNFT(name, "RVT");
         products[id] = pdt;
+        payable(address(this)).transfer(msg.value);
+        productValuePool[id] = msg.value;
     }
 
     function buyProduct(
@@ -93,10 +97,11 @@ contract Universal {
         emit thresholdChanged(claimThreshold[productId]);
     }
 
-    function claim(uint256 amount) public {
+    function claim(uint256 amount, uint256 share) public payable {
         require(staked[msg.sender] == true, "not reviewed");
         addressToStakeamt[msg.sender] += amount;
         token.transfer(msg.sender, amount);
+        payable(msg.sender).transfer((productValuePool[share] * share) / 100);
         //mint gov token
         // govToken.mint(msg.sender, 10000000000000000);
     }
