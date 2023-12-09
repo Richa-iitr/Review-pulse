@@ -4,17 +4,17 @@ async function main() {
   const MyTokenContract = await ethers.getContractFactory("MyToken");
   const MyToken = await MyTokenContract.deploy();
 
-  await MyToken.deployed();
+  // await MyToken.deployed();
 
-  console.log(`MyToken deployed to ${MyToken.address}`);
+  // console.log(`MyToken deployed to ${MyToken.address}`);
 
-  const TimeLockContract = await ethers.getContractFactory("TimeLock");
-  const TimeLock = await TimeLockContract.deploy(
-    "1",
-    ["0xFe643b54727d53C49835f9f6c1a2B9861E741d98"],
-    ["0xFe643b54727d53C49835f9f6c1a2B9861E741d98"],
-    "0xFe643b54727d53C49835f9f6c1a2B9861E741d98"
-  );
+  // const TimeLockContract = await ethers.getContractFactory("TimeLock");
+  // const TimeLock = await TimeLockContract.deploy(
+  //   "1",
+  //   ["0xFe643b54727d53C49835f9f6c1a2B9861E741d98"],
+  //   ["0xFe643b54727d53C49835f9f6c1a2B9861E741d98"],
+  //   "0xFe643b54727d53C49835f9f6c1a2B9861E741d98"
+  // );
 
   const myTokenAddress = MyToken.address;
   // const daoGovernorContract = await ethers.getContractFactory("MyGovernor");
