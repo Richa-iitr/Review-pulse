@@ -22,6 +22,10 @@ module.exports = {
     linea: {
       url: `https://linea-goerli.infura.io/v3/${INFURA_API_KEY}`,
       accounts: [SEPOLIA_PRIVATE_KEY]
+    },
+    polygon: {
+      url: `https://polygon-mumbai.infura.io/v3/${INFURA_API_KEY}`,
+      accounts: [SEPOLIA_PRIVATE_KEY]
     }
   }
 };
