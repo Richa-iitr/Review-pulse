@@ -1,10 +1,15 @@
 import express from "express";
 import { routes } from "./routes";
 import mongoose from "mongoose";
+const fileUpload = require("express-fileupload");
 import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
+
+app.use(express.static(__dirname + "/uploads/"));
+
+app.use(fileUpload());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

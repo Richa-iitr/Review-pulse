@@ -1,6 +1,6 @@
 import { User } from "../models/user.model";
 export const getUserRoute = {
-  method: "GET",
+  method: "get",
   path: "/api/:anon_id/user",
   handler: async (req, res) => {
     const { anon_id } = req.params;

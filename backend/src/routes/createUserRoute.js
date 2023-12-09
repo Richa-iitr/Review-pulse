@@ -1,8 +1,9 @@
 import { User } from "../models/user.model";
 export const createUserRoute = {
-  method: "POST",
+  method: "post",
   path: "/api/:anon_id/user",
   handler: async (req, res) => {
+    console.log(req.body);
     const { name } = req.body;
 
     if (!name) {
