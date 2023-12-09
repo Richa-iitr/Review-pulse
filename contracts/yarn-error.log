@@ -1,0 +1,37 @@
+Arguments: 
+  /home/wsl-ubuntu/.nvm/versions/node/v20.10.0/bin/node /home/wsl-ubuntu/.yarn/bin/yarn.js
+
+PATH: 
+  /home/wsl-ubuntu/.yarn/bin:/home/wsl-ubuntu/.config/yarn/global/node_modules/.bin:/home/wsl-ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/bin/remote-cli:/home/wsl-ubuntu/.bun/bin:/home/wsl-ubuntu/.cargo/bin:/home/wsl-ubuntu/.nvm/versions/node/v20.10.0/bin:/home/wsl-ubuntu/.yarn/bin:/home/wsl-ubuntu/.config/yarn/global/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Python311/Scripts/:/mnt/c/Python311/:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/110/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/120/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/120/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/QuickTime/QTSystem/:/mnt/c/Program Files/mongosh/mongosh-1.8.0-win32-x64/bin/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/91831/AppData/Local/pnpm:/mnt/c/Users/91831/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/91831/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/91831/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/91831/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/MinGW/bin:/mnt/c/Program Files/MongoDB/Server/6.0/bin/:/mnt/c/Users/91831/AppData/Roaming/npm:/mnt/c/Users/91831/AppData/Local/GitHubDesktop/bin:/snap/bin:/home/wsl-ubuntu/.foundry/bin:/home/wsl-ubuntu/blockchain/filecoin/ipc/bin:/home/wsl-ubuntu/.stackr/bin:/home/wsl-ubuntu/.foundry/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  20.10.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)
+
+npm manifest: 
+  {
+    "name": "hardhat-project",
+    "devDependencies": {
+      "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+      "hardhat": "^2.19.2"
+    },
+    "dependencies": {
+      "@openzeppelin/contracts": "^5.0.1",
+      "dotenv": "^16.3.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

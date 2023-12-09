@@ -4,11 +4,12 @@ import "./interfaces.sol";
 import "./PopNFT.sol";
 import {ProofOfPurchaseNFT} from "./PopNFT.sol";
 import {GovernanceToken} from "./GovernanceToken.sol";
+import {MyToken} from "./ReviewToken.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 //linea: 0xb31EA32b27b3e28cF8369c121f6E2996f26e3277
 contract Universal {
-    IERC20 public token = IERC20(0x257B7Bd2E932e7e6E8388EF934a77CD853522438);
+    MyToken public token;
 
     mapping(uint256 => mapping(address => uint256)) popNfts;
     struct Product {
@@ -30,9 +31,10 @@ contract Universal {
     event productReviewed(uint256 productId, address sender);
     event thresholdChanged(uint256 threshold);
 
-    constructor(address dao, address governorToken) {
+    constructor(address dao, address governorToken, address reviewToken) {
         daoGovernor = dao;
         govToken = GovernanceToken(governorToken);
+        token = MyToken(reviewToken);
     }
 
     //sign in with aadhar

@@ -18,19 +18,25 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 module.exports = {
   solidity: "0.8.20",
+  settings: {
+    optimizer: {
+      enabled: true,
+      runs: 200,
+    },
+  },
   networks: {
     linea: {
       url: `https://linea-goerli.infura.io/v3/${INFURA_API_KEY}`,
-      accounts: [PRIVATE_KEY]
+      accounts: [PRIVATE_KEY],
     },
     polygon: {
-      url: `https://polygon-mumbai.infura.io/v3/${INFURA_API_KEY}`,
-      accounts: [PRIVATE_KEY]
+      url: `https://polygon-mumbai.infura.io/v3/4458cf4d1689497b9a38b1d6bbf05e78`,
+      accounts: [PRIVATE_KEY],
     },
     scrollSepolia: {
       url: "https://sepolia-rpc.scroll.io/" || "",
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
-  }
+  },
 };
