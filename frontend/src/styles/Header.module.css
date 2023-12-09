@@ -35,7 +35,7 @@
 .navigation > ul > li > a {
   color: var(--clr-primary);
   text-decoration: none;
-  font-size: var(--ft-500);
+  font-size: var(--ft-400);
   font-weight: 400;
 }
 .navigation > ul > li > a.active {

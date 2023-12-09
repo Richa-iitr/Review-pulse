@@ -43,10 +43,18 @@ const Header = () => {
               Home
             </Link>
           </li>
-          <li></li>
+          <li>
+            <Link className={activeClassName("/login")} href={"/login"}>
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link className={activeClassName("/signup")} href={"/signup"}>
+              Signup
+            </Link>
+          </li>
         </ul>
       </nav>
-      <LogInWithAnonAadhaar />
     </header>
   );
 };
