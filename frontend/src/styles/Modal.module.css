@@ -16,4 +16,13 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(3, 27, 78, 0.06);
   min-width: 40vw;
+  animation: slideIn 0.2s linear;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateY(-400px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

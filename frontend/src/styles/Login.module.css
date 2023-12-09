@@ -1,0 +1,38 @@
+.login-page {
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 63px);
+}
+.content-container {
+  background-color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 400px;
+}
+.input-field-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.input-field-container > label,
+.anon-container > p,
+.wallet-container > p {
+  font-weight: 500;
+  color: #222;
+  font-size: var(--ft-250);
+}
+.input-field-container > input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.anon-container > p,
+.wallet-container > p {
+  margin-bottom: 1rem;
+}
