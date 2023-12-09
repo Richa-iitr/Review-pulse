@@ -25,7 +25,7 @@ Our approach incentivizes the users to provide reviews in a risk-and-reward mode
   - The main point to note is that for a round the ratings and review provided by other users is completely hidden, however the users can still see the slight analysis of the product (safe or not) along with the descriptions of the previousreviewers, to decide whether or not to buys the product which will be determining the sale of the product.
   - Once a round is over the incentives for that round are available to be claimed, however to ensure the user taking the maximum risk is rewarded the most, the percentage of the pool rewards decreases with increasing rounds.
   - To ensure the protocol mechanics works as intended, there is a DAO of the highest reputated reviewers, currently declared on the basis of the Proof of Purchase NFTs with the users (not the best approach as of now but for actual product we can use game theory and reputation attestation for these tasks).
-    ![di1 drawio](https://github.com/Richa-iitr/Review-pulse/assets/76250660/0ccbd8d1-f020-40a3-b653-bf644fac5ddd)
+          ![di1 drawio](https://github.com/Richa-iitr/Review-pulse/assets/76250660/0ccbd8d1-f020-40a3-b653-bf644fac5ddd)
 
 
 
