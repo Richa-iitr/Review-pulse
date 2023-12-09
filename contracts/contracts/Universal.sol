@@ -25,15 +25,19 @@ contract Universal {
     mapping(address => uint256) private addressToStakeamt;
     mapping(address => bool) private staked;
     mapping(uint256 => uint256) public claimThreshold;
-    address public daoGovernor;
-    GovernanceToken public govToken;
+    // address public daoGovernor;
+    // GovernanceToken public govToken;
 
     event productReviewed(uint256 productId, address sender);
     event thresholdChanged(uint256 threshold);
 
-    constructor(address dao, address governorToken, address reviewToken) {
-        daoGovernor = dao;
-        govToken = GovernanceToken(governorToken);
+    constructor(
+        // address dao,
+        // address governorToken,
+        address reviewToken
+    ) {
+        // daoGovernor = dao;
+        // govToken = GovernanceToken(governorToken);
         token = MyToken(reviewToken);
     }
 
@@ -84,7 +88,7 @@ contract Universal {
     }
 
     function setClaimThreshold(uint256 productId, uint256 threshold) public {
-        require(msg.sender == daoGovernor, "Only DAO can call");
+        // require(msg.sender == daoGovernor, "Only DAO can call");
         claimThreshold[productId] = threshold;
         emit thresholdChanged(claimThreshold[productId]);
     }
@@ -94,6 +98,6 @@ contract Universal {
         addressToStakeamt[msg.sender] += amount;
         token.transfer(msg.sender, amount);
         //mint gov token
-        govToken.mint(msg.sender, 10000000000000000);
+        // govToken.mint(msg.sender, 10000000000000000);
     }
 }
