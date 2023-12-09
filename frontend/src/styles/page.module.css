@@ -1,0 +1,35 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+}
+.ongoing-section {
+  background: linear-gradient(#fff, #ccc);
+  padding: 2.5rem var(--b-pad);
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.list-btn {
+  all: unset;
+  color: var(--a-clr);
+  font-size: 0.94rem;
+  cursor: pointer;
+}
+.list-btn:hover {
+  text-decoration: underline;
+}
+.ongoing-section > h2,
+.section-header > h2 {
+  font-size: var(--ft-700);
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+.ongoing-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
