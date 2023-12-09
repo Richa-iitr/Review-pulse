@@ -27,7 +27,7 @@ contract Universal {
     address public daoGovernor;
     GovernanceToken public govToken;
 
-    event productReviewed(uint256 productId, address msg.msg.sender);
+    event productReviewed(uint256 productId, address sender);
     event thresholdChanged(uint256 threshold);
 
     constructor(address dao, address governorToken) {
@@ -75,7 +75,7 @@ contract Universal {
         
     }
 
-    function getNoOfReview(uint256 productId) public view {
+    function getNoOfReview(uint256 productId) public view returns (uint256) {
         return noOfReviews[productId];
     }
 

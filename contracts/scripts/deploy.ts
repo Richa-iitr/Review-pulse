@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 
 async function main() {
 
-  const Lock = await ethers.getContractFactory("Universal");
+  const Lock = await ethers.getContractFactory("GovernanceToken");
   const lock = await Lock.deploy();
 
   await lock.deployed();
