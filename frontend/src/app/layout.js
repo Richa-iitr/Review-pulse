@@ -3,6 +3,8 @@ import "@/styles/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import Header from "@/components/Header";
 import MoralisProviderCustom from "@/components/MoralisProvider";
+import { AnonProvider } from "@/components/AnonProvider";
+import Saturn from "@/components/Saturn";
 
 // const app_id = BigInt(parseInt(crypto.randomBytes(20).toString("hex"), 16)); // random value.
 export const metadata = {
@@ -13,11 +15,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Saturn />
       <body className={inter.className}>
-        <MoralisProviderCustom>
-          <Header />
-          {children}
-        </MoralisProviderCustom>
+        <AnonProvider>
+          <MoralisProviderCustom>
+            <Header />
+            {children}
+          </MoralisProviderCustom>
+        </AnonProvider>
       </body>
     </html>
   );

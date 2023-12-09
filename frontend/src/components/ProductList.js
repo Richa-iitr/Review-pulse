@@ -4,22 +4,64 @@ import Modal from "./Modal";
 import { IoCloseSharp } from "react-icons/io5";
 import classes from "@/styles/ProductList.module.css";
 import { useState } from "react";
-import { v4 } from "uuid";
+import useUniversalContract from "@/hooks/useUniversalContract";
+import { useAnonAadhaar } from "anon-aadhaar-react";
 const ProductList = ({ onClose }) => {
   const [file, setFile] = useState();
   const [values, setValues] = useState({
     name: "",
     seller: "",
     description: "",
-    id: v4(),
+    tokens: 0,
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const { getProductCount, addProduct } = useUniversalContract();
+  const [anonAadhaar] = useAnonAadhaar();
   const handleValueChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
-  const handleProductSubmit = (e) => {
+  const handleProductSubmit = async (e) => {
     e.preventDefault();
     if (!values.name || !values.seller || !values.description || !file) return;
-    console.log(values, file);
+    try {
+      setIsLoading(true);
+      console.log("getting count");
+      const nftCount = await getProductCount();
+      if (!nftCount) return;
+      console.log(Number(nftCount));
+      const contractResponse = await addProduct(
+        values.name,
+        Number(nftCount),
+        anonAadhaar.pcd.proof.nullifier,
+        values.tokens.toString()
+      );
+
+      console.log(contractResponse);
+      const formData = new FormData();
+      formData.append("name", values.name);
+      formData.append("seller", values.seller);
+      formData.append("description", values.description);
+      formData.append("tokens", values.tokens);
+      formData.append("product_id", nftCount);
+      formData.append("image", file);
+
+      // const response = await fetch(
+      //   `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products`,
+      //   {
+      //     method: "POST",
+      //     body: formData,
+      //   }
+      // );
+
+      // const data = await response.json();
+      // console.log(data);
+
+      setIsLoading(false);
+      // onClose();
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+    }
   };
   return (
     <Modal>
@@ -35,7 +77,7 @@ const ProductList = ({ onClose }) => {
             <label htmlFor="product-name">Product Name</label>
             <input
               type="text"
-              placeholder="name"
+              placeholder="Name"
               id={"product-name"}
               onChange={handleValueChange("name")}
             />
@@ -44,9 +86,18 @@ const ProductList = ({ onClose }) => {
             <label htmlFor="seller-name">Seller</label>
             <input
               type="text"
-              placeholder="seller"
+              placeholder="Seller Name"
               id={"seller-name"}
               onChange={handleValueChange("seller")}
+            />
+          </div>
+          <div className={classes["field-container"]}>
+            <label htmlFor="tokens">Amount to Pay</label>
+            <input
+              type="number"
+              placeholder="Amount to Pay"
+              id={"tokens"}
+              onChange={handleValueChange("tokens")}
             />
           </div>
           <div className={classes["field-container"]}>
@@ -59,6 +110,7 @@ const ProductList = ({ onClose }) => {
               onChange={handleValueChange("description")}
             />
           </div>
+
           <div className={classes["field-container"]}>
             <label htmlFor="description">Product Image</label>
             <input
@@ -68,7 +120,7 @@ const ProductList = ({ onClose }) => {
             />
           </div>
           <button type="submit" className="btn">
-            Submit Project
+            {isLoading ? <div className="spin"></div> : "Submit Product"}
           </button>
         </form>
       </div>

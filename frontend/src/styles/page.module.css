@@ -1,11 +1,15 @@
 .main {
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-primary);
+  background-color: #eef3f7;
+  min-height: calc(100vh - 61px);
+  padding: 2.5rem var(--b-pad);
 }
 .ongoing-section {
-  background: linear-gradient(#fff, #ccc);
-  padding: 2.5rem var(--b-pad);
+  /* background: linear-gradient(#fff, #ccc); */
+  background-color: #eef3f7;
+
+  padding-bottom: 1.5rem;
 }
 .section-header {
   display: flex;
@@ -25,11 +29,14 @@
 .ongoing-section > h2,
 .section-header > h2 {
   font-size: var(--ft-700);
-  font-weight: 500;
-  margin-bottom: 2rem;
+  color: #222;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 0;
 }
 .ongoing-products {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }

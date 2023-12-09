@@ -1,10 +1,8 @@
 import { contractAddress, abi } from "../../constants";
-import { useState, useEffect } from "react";
 import { useWeb3Contract } from "react-moralis";
 import useWeb3 from "./useWeb3";
 import { ethers } from "ethers";
 
-const useUniversalContract = () => {
 const useUniversalContract = () => {
   const { userAccount } = useWeb3();
   const { runContractFunction, data, error, isLoading } = useWeb3Contract({});
@@ -33,7 +31,7 @@ const useUniversalContract = () => {
     }
   };
 
-  const addProduct = async (productName, id, nullifier) => {
+  const addProduct = async (productName, id, nullifier, value) => {
     const parameters = {
       abi: abi.universal,
       contractAddress: contractAddress.universal,
@@ -43,7 +41,7 @@ const useUniversalContract = () => {
         id: id,
         aadhar: nullifier,
       },
-      msgValue: ethers.utils.parseEther("0.01"),
+      msgValue: ethers.utils.parseEther(value),
     };
     try {
       const response = await runContractFunction({
@@ -133,13 +131,13 @@ const useUniversalContract = () => {
           console.log(error);
         },
       });
-      console.log(response);
+      return response;
     } catch (error) {
       console.log(error);
     }
   };
 
-  function getPopNFT(productId, userAccount) {
+  async function getPopNFT(productId, userAccount) {
     const parameters = {
       abi: abi.popNFT,
       contractAddress: contractAddress.popNFT,
@@ -150,7 +148,7 @@ const useUniversalContract = () => {
       },
     };
     try {
-      const response = runContractFunction({
+      const response = await runContractFunction({
         params: parameters,
         onSuccess: (response) => {
           console.log(response);
@@ -159,12 +157,12 @@ const useUniversalContract = () => {
           console.log(error);
         },
       });
-      console.log(response);
+      return response;
     } catch (error) {
       console.log(error);
     }
   }
-  function getProductCount() {
+  async function getProductCount() {
     const parameters = {
       abi: abi.universal,
       contractAddress: contractAddress.universal,
@@ -172,7 +170,7 @@ const useUniversalContract = () => {
       params: {},
     };
     try {
-      const response = runContractFunction({
+      const response = await runContractFunction({
         params: parameters,
         onSuccess: (response) => {
           console.log(response);
@@ -181,7 +179,7 @@ const useUniversalContract = () => {
           console.log(error);
         },
       });
-      console.log(response);
+      return response;
     } catch (error) {
       console.log(error);
     }
@@ -193,6 +191,7 @@ const useUniversalContract = () => {
     buyProduct,
     getProductCount,
     getPopNFT,
+    review,
   };
 };
 export default useUniversalContract;

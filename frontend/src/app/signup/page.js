@@ -3,22 +3,33 @@ import React, { useState } from "react";
 import classes from "@/styles/Login.module.css";
 import { LogInWithAnonAadhaar, useAnonAadhaar } from "anon-aadhaar-react";
 import Wallets from "@/components/Wallets";
+import { useRouter } from "next/navigation";
+import useUniversalContract from "@/hooks/useUniversalContract";
 
 const Page = () => {
   const [anonAadhaar] = useAnonAadhaar();
   const [name, setName] = useState("");
+  const router = useRouter();
+  const { registerAadhar } = useUniversalContract();
 
   const handleSignUp = async () => {
+    if (!name || !anonAadhaar.pcd.proof.nullifier) return;
+
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}`, {
-        method: "POST",
-        body: JSON.stringify(name),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await registerAadhar(anonAadhaar.pcd.proof.nullifier);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/${anonAadhaar.pcd.proof.nullifier}/user`,
+        {
+          method: "POST",
+          body: JSON.stringify({ name }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await response.json();
       console.log(data);
+      router.push("/");
     } catch (err) {
       console.log(err);
     }
@@ -38,13 +49,7 @@ const Page = () => {
 
         <div className={classes["anon-container"]}>
           <p>Verify with Anon Aadhaar</p>
-          {anonAadhaar.status === "logged-in" ? (
-            <p>{anonAadhaar.pcd}</p>
-          ) : anonAadhaar.status === "logging-in" ? (
-            <div className="spin"></div>
-          ) : (
-            <LogInWithAnonAadhaar />
-          )}
+          <LogInWithAnonAadhaar />
         </div>
         <div className={classes["wallet-container"]}>
           <p>Wallet Connection</p>

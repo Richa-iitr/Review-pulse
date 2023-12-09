@@ -19,7 +19,8 @@
   gap: 1rem;
 }
 .logo-text {
-  font-size: var(--ft-650);
+  font-size: var(--ft-600);
+  font-weight: 400;
   color: #000;
 }
 .hamburger {
@@ -29,13 +30,13 @@
 .navigation > ul {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   list-style: none;
 }
 .navigation > ul > li > a {
-  color: var(--clr-primary);
+  color: #444;
   text-decoration: none;
-  font-size: var(--ft-400);
+  font-size: var(--ft-250);
   font-weight: 400;
 }
 .navigation > ul > li > a.active {

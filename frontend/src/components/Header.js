@@ -38,21 +38,32 @@ const Header = () => {
         onClick={hideNav}
       >
         <ul>
-          <li>
-            <Link id="link" className={activeClassName("/")} href="/">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className={activeClassName("/login")} href={"/login"}>
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link className={activeClassName("/signup")} href={"/signup"}>
-              Signup
-            </Link>
-          </li>
+          {anonAadhaar.status === "logged-in" ? (
+            <>
+              <li>
+                <Link id="link" className={activeClassName("/")} href="/">
+                  Home
+                </Link>
+              </li>{" "}
+              <li>
+                <Wallets />
+              </li>
+              <LogInWithAnonAadhaar />
+            </>
+          ) : (
+            <>
+              <li>
+                <Link className={activeClassName("/login")} href={"/login"}>
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link className={activeClassName("/signup")} href={"/signup"}>
+                  Signup
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>

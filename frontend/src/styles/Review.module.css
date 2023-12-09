@@ -37,6 +37,12 @@
   color: #222;
   font-size: var(--ft-250);
 }
+.input-field-container > input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 .input-field-container > textarea {
   padding: 0.5rem;
   border: 1px solid #ced4da;
