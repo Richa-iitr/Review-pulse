@@ -4,12 +4,7 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "dao",
-          "type": "address"
-        },
-        {
-          "internalType": "address",
-          "name": "governorToken",
+          "name": "reviewToken",
           "type": "address"
         }
       ],
@@ -49,6 +44,19 @@
       "type": "event"
     },
     {
+      "inputs": [],
+      "name": "RANDOMNFTGENERATORPROMPT",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "string",
@@ -61,11 +69,6 @@
           "type": "uint256"
         },
         {
-          "internalType": "address",
-          "name": "nft",
-          "type": "address"
-        },
-        {
           "internalType": "string",
           "name": "aadhar",
           "type": "string"
@@ -73,7 +76,7 @@
       ],
       "name": "addProduct",
       "outputs": [],
-      "stateMutability": "nonpayable",
+      "stateMutability": "payable",
       "type": "function"
     },
     {
@@ -86,6 +89,11 @@
         {
           "internalType": "string",
           "name": "aadhar",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "uri",
           "type": "string"
         }
       ],
@@ -100,11 +108,16 @@
           "internalType": "uint256",
           "name": "amount",
           "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "share",
+          "type": "uint256"
         }
       ],
       "name": "claim",
       "outputs": [],
-      "stateMutability": "nonpayable",
+      "stateMutability": "payable",
       "type": "function"
     },
     {
@@ -128,15 +141,9 @@
     },
     {
       "inputs": [],
-      "name": "daoGovernor",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
+      "name": "generateRandomPrompt",
+      "outputs": [],
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -159,13 +166,63 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "govToken",
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "productId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getPopNFT",
       "outputs": [
         {
-          "internalType": "contract GovernanceToken",
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "prompt",
+          "type": "string"
+        }
+      ],
+      "name": "getRandomNFT",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lilypad",
+      "outputs": [
+        {
+          "internalType": "contract Lilypad",
           "name": "",
           "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nftJobId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -180,6 +237,38 @@
         }
       ],
       "name": "noOfReviews",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "productCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "productValuePool",
       "outputs": [
         {
           "internalType": "uint256",
@@ -211,9 +300,22 @@
           "type": "uint256"
         },
         {
-          "internalType": "address",
+          "internalType": "contract ProofOfPurchaseNFT",
           "name": "nft",
           "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "promptJobId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",
@@ -273,7 +375,7 @@
       "name": "token",
       "outputs": [
         {
-          "internalType": "contract IERC20",
+          "internalType": "contract MyToken",
           "name": "",
           "type": "address"
         }

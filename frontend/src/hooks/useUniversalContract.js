@@ -5,6 +5,7 @@ import useWeb3 from "./useWeb3";
 import { ethers } from "ethers";
 
 const useUniversalContract = () => {
+const useUniversalContract = () => {
   const { userAccount } = useWeb3();
   const { runContractFunction, data, error, isLoading } = useWeb3Contract({});
   const registerAadhar = async (nullifier) => {
@@ -93,9 +94,9 @@ const useUniversalContract = () => {
       contractAddress: contractAddress.universal,
       functionName: "review",
       params: {
-        amount: "20000000000",
-        productId: "10",
+        productId: productId,
       },
+      msgValue: ethers.utils.parseEther(amount),
     };
     try {
       const response = await runContractFunction({
@@ -137,6 +138,61 @@ const useUniversalContract = () => {
       console.log(error);
     }
   };
-  return { registerAadhar, getProducts, addProduct, buyProduct, review };
+
+  function getPopNFT(productId, userAccount) {
+    const parameters = {
+      abi: abi.popNFT,
+      contractAddress: contractAddress.popNFT,
+      functionName: "getPopNFT",
+      params: {
+        productId: productId,
+        user: userAccount,
+      },
+    };
+    try {
+      const response = runContractFunction({
+        params: parameters,
+        onSuccess: (response) => {
+          console.log(response);
+        },
+        onError: (error) => {
+          console.log(error);
+        },
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  function getProductCount() {
+    const parameters = {
+      abi: abi.universal,
+      contractAddress: contractAddress.universal,
+      functionName: "productCount",
+      params: {},
+    };
+    try {
+      const response = runContractFunction({
+        params: parameters,
+        onSuccess: (response) => {
+          console.log(response);
+        },
+        onError: (error) => {
+          console.log(error);
+        },
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  return {
+    registerAadhar,
+    getProducts,
+    addProduct,
+    buyProduct,
+    getProductCount,
+    getPopNFT,
+  };
 };
 export default useUniversalContract;
