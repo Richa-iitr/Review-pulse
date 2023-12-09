@@ -58,11 +58,11 @@ fn claim_reward_logic(userHash: Field, productId: Field, submittedRating: Field)
     let median = calculate_median(allRatings);
 
     if submittedRating == median || submittedRating == median - 1 || submittedRating == median + 1 {
-        return 35; // 35% reward
+         35; // 35% reward
     } else if submittedRating == median {
-        return 60; // 60% reward
+         60; // 60% reward
     } else {
-        return 5; // 5% reward
+         5; // 5% reward
     }
 }
 

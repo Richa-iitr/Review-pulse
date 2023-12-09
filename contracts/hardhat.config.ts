@@ -14,18 +14,23 @@ const INFURA_API_KEY = process.env.INFURA_API_KEY;
 // To export your private key from Metamask, open Metamask and
 // go to Account Details > Export Private Key
 // Beware: NEVER put real Ether into testing accounts
-const SEPOLIA_PRIVATE_KEY = process.env.SEPOLIA_PRIVATE_KEY;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 module.exports = {
   solidity: "0.8.20",
   networks: {
     linea: {
       url: `https://linea-goerli.infura.io/v3/${INFURA_API_KEY}`,
-      accounts: [SEPOLIA_PRIVATE_KEY]
+      accounts: [PRIVATE_KEY]
     },
     polygon: {
       url: `https://polygon-mumbai.infura.io/v3/${INFURA_API_KEY}`,
-      accounts: [SEPOLIA_PRIVATE_KEY]
-    }
+      accounts: [PRIVATE_KEY]
+    },
+    scrollSepolia: {
+      url: "https://sepolia-rpc.scroll.io/" || "",
+      accounts:
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
   }
 };
