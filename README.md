@@ -28,5 +28,7 @@ Our approach incentivizes the users to provide reviews in a risk-and-reward mode
 - Whenever a service provider, publishes or posts his product, he decides a pool of native tokens which will be used as a reward for the review providers. 
 
 
- FUTURE 
+ FUTURE <br>
  With the collaboration of service providers these incentives can include discounts, loyalty points, or other tangible benefits.
+- subgraph
+ https://github.com/Richa-iitr/Review-pulse-subgraph
