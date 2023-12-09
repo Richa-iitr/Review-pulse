@@ -6,6 +6,7 @@ import {ProofOfPurchaseNFT} from "./PopNFT.sol";
 import {GovernanceToken} from "./GovernanceToken.sol";
 import {MyToken} from "./ReviewToken.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {Lilypad} from "./Lilypad.sol";
 
 //linea: 0xb31EA32b27b3e28cF8369c121f6E2996f26e3277
 contract Universal {
@@ -17,15 +18,22 @@ contract Universal {
         uint256 id;
         ProofOfPurchaseNFT nft;
     }
+    // declare a constant string
+    string public constant RANDOMNFTGENERATORPROMPT =
+        "Give a prompt for generating a random NFT for users of our dapp called Review-pulse";
+    Lilypad public lilypad;
 
     //pdt id mapped with Product struct
     mapping(uint256 => Product) public products;
+    uint256 public productCount;
     mapping(uint256 => uint256) public noOfReviews;
     mapping(string => address) private aadharToAddress;
     mapping(address => uint256) private addressToStakeamt;
     mapping(address => bool) private staked;
     mapping(uint256 => uint256) public productValuePool;
     mapping(uint256 => uint256) public claimThreshold;
+    uint256 public promptJobId;
+    uint256 public nftJobId;
     // address public daoGovernor;
     // GovernanceToken public govToken;
 
@@ -40,6 +48,8 @@ contract Universal {
         // daoGovernor = dao;
         // govToken = GovernanceToken(governorToken);
         token = MyToken(reviewToken);
+        lilypad = new Lilypad();
+        productCount = 0;
     }
 
     //sign in with aadhar
@@ -64,6 +74,7 @@ contract Universal {
         products[id] = pdt;
         payable(address(this)).transfer(msg.value);
         productValuePool[id] = msg.value;
+        productCount++;
     }
 
     function buyProduct(
@@ -104,5 +115,20 @@ contract Universal {
         payable(msg.sender).transfer((productValuePool[share] * share) / 100);
         //mint gov token
         // govToken.mint(msg.sender, 10000000000000000);
+    }
+
+    function generateRandomPrompt() public {
+        promptJobId = lilypad.runMistral(RANDOMNFTGENERATORPROMPT);
+    }
+
+    function getRandomNFT(string memory prompt) public {
+        nftJobId = lilypad.runStableDiffusion(prompt);
+    }
+
+    function getPopNFT(
+        uint256 productId,
+        address user
+    ) public view returns (uint256) {
+        return popNfts[productId][user];
     }
 }

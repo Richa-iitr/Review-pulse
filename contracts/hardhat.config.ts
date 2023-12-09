@@ -44,5 +44,9 @@ module.exports = {
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
+    lilypad: {
+      url: "http://testnet.lilypad.tech:8545",
+      accounts: [PRIVATE_KEY],
+    }
   },
 };
