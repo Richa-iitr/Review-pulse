@@ -1,4 +1,5 @@
 import { Review } from "../models/review.model";
+import { Product } from "../models/product.model";
 export const createReviewRoute = {
   method: "post",
   path: "/api/:anon_id/review",
@@ -21,6 +22,9 @@ export const createReviewRoute = {
       product_id: productId,
     });
     await product.save();
+    await Product.findByIdAndUpdate(productId, {
+      $inc: { reviews: 1 },
+    });
     console.log(product);
     res.status(201).json({ message: "Review created successfully" });
   },

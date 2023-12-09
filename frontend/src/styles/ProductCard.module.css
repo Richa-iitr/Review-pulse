@@ -2,6 +2,22 @@
   height: 200px;
   overflow: hidden;
   position: relative;
+  transition: all 0.4s ease;
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 3px 10px #374151;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.product-card:hover {
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 5px 13px #374151;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.5s;
+  transform: translateY(-10px);
 }
 .buy-button {
   all: unset;
@@ -34,16 +50,40 @@
 
 .content {
   position: absolute;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 25px 25px 10px;
+  padding: 10px 25px 25px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   background: linear-gradient(to bottom, transparent, #000);
 }
 .content {
   color: #fff;
+}
+.recommended,
+.unrecommended {
+  display: flex;
+  justify-content: flex-end;
+}
+.recommended > p,
+.unrecommended > p {
+  align-self: flex-end;
+  padding: 0.5rem;
+  border-radius: 3px;
+}
+.recommended > p {
+  background-color: var(--a-clr);
+  padding: 0.5rem;
+}
+.unrecommended > p {
+  background-color: yellow;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
 }
 
 .content > div {
@@ -58,7 +98,11 @@
 .content > div > p {
   font-size: 0.8rem;
 }
-
+.ongoing-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .left {
   display: flex;
   flex-direction: column;
@@ -67,6 +111,14 @@
 .completed {
   padding: 0.2rem 0.5rem;
   background-color: green;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 3px;
+}
+.round {
+  padding: 0.2rem 0.5rem;
+  background-color: var(--a-clr);
   display: flex;
   align-items: center;
   gap: 0.5rem;

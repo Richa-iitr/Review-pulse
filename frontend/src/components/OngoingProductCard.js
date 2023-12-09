@@ -53,10 +53,26 @@ const OngoingProductCard = ({ productId, name, reviews }) => {
     <div className={classes["product-card"]}>
       <Image className={classes.img} src={clothingImage} alt="clothing" />
       <div className={classes["content"]}>
-        <h4>{name}</h4>
-        <div>
-          <BiMessageRounded />
-          <p>{reviews} Reviews</p>
+        {reviews > 0 ? (
+          <div
+            className={
+              recommended ? classes.recommended : classes.unrecommended
+            }
+          >
+            <p>{recommended ? "recommended" : "unrecommended"}</p>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <div className={classes.bottom}>
+          <div className={classes["ongoing-left"]}>
+            <h4>{name}</h4>
+            <p className={classes.round}>Round {Math.trunc(reviews / 5) + 1}</p>
+          </div>
+          <div>
+            <BiMessageRounded />
+            <p>{reviews} Reviews</p>
+          </div>
         </div>
       </div>
       {showBuy ? (

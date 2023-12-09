@@ -10,7 +10,7 @@ const ReviewsPage = () => {
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/${productId}/reviews`
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/${productId}/reviews/ongoing`
       );
       const data = await res.json();
       console.log(data);

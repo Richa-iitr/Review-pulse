@@ -1,0 +1,92 @@
+[
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user1",
+    "review": "This product is amazing!",
+    "rating": 5,
+    "stake": 100,
+    "created_at": "2023-01-01T12:00:00Z",
+    "updated_at": "2023-01-01T12:00:00Z"
+  },
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user2",
+    "review": "Not satisfied with the quality.",
+    "rating": 2,
+    "stake": 50,
+    "created_at": "2023-01-02T14:30:00Z",
+    "updated_at": "2023-01-02T14:30:00Z"
+  },
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user3",
+    "review": "Average product, but good price.",
+    "rating": 3,
+    "stake": 75,
+    "created_at": "2023-01-03T10:45:00Z",
+    "updated_at": "2023-01-03T10:45:00Z"
+  },
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user4",
+    "review": "Excellent service and fast delivery!",
+    "rating": 5,
+    "stake": 90,
+    "created_at": "2023-01-04T08:15:00Z",
+    "updated_at": "2023-01-04T08:15:00Z"
+  },
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user5",
+    "review": "Could be better.",
+    "rating": 2,
+    "stake": 60,
+    "created_at": "2023-01-05T16:20:00Z",
+    "updated_at": "2023-01-05T16:20:00Z"
+  },
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user6",
+    "review": "Highly recommended!",
+    "rating": 4,
+    "stake": 80,
+    "created_at": "2023-01-06T13:10:00Z",
+    "updated_at": "2023-01-06T13:10:00Z"
+  },
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user7",
+    "review": "Not worth the price.",
+    "rating": 1,
+    "stake": 30,
+    "created_at": "2023-01-07T11:55:00Z",
+    "updated_at": "2023-01-07T11:55:00Z"
+  },
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user8",
+    "review": "Good value for money.",
+    "rating": 4,
+    "stake": 85,
+    "created_at": "2023-01-08T09:40:00Z",
+    "updated_at": "2023-01-08T09:40:00Z"
+  },
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user9",
+    "review": "Decent product, quick delivery.",
+    "rating": 3,
+    "stake": 70,
+    "created_at": "2023-01-09T15:05:00Z",
+    "updated_at": "2023-01-09T15:05:00Z"
+  },
+  {
+    "product_id": "c7992494-7898-49ba-a20c-c5a5f5931802",
+    "anon_id": "user10",
+    "review": "Terrible customer service!",
+    "rating": 1,
+    "stake": 40,
+    "created_at": "2023-01-10T17:30:00Z",
+    "updated_at": "2023-01-10T17:30:00Z"
+  }
+]

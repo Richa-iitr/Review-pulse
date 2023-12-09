@@ -41,7 +41,7 @@ const useUniversalContract = () => {
         id: id,
         aadhar: nullifier,
       },
-      msgValue: ethers.utils.parseEther(value),
+      msgValue: ethers.utils.parseEther("0.01"),
     };
     try {
       const response = await runContractFunction({

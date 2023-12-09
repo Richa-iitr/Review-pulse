@@ -17,6 +17,7 @@ const ProductList = ({ onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { getProductCount, addProduct } = useUniversalContract();
   const [anonAadhaar] = useAnonAadhaar();
+  console.log(anonAadhaar);
   const handleValueChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
@@ -45,19 +46,19 @@ const ProductList = ({ onClose }) => {
       formData.append("product_id", nftCount);
       formData.append("image", file);
 
-      // const response = await fetch(
-      //   `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products`,
-      //   {
-      //     method: "POST",
-      //     body: formData,
-      //   }
-      // );
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
-      // const data = await response.json();
-      // console.log(data);
+      const data = await response.json();
+      console.log(data);
 
       setIsLoading(false);
-      // onClose();
+      onClose();
     } catch (err) {
       console.log(err);
       setIsLoading(false);
@@ -98,6 +99,7 @@ const ProductList = ({ onClose }) => {
               placeholder="Amount to Pay"
               id={"tokens"}
               onChange={handleValueChange("tokens")}
+              min={0}
             />
           </div>
           <div className={classes["field-container"]}>
