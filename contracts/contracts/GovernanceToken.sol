@@ -6,6 +6,8 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 
+//linea: 0xBa1F9e7A98cd700969A36b9E8Cfe292dB49Dd4CD
+//polygon 
 contract GovernanceToken is ERC20, ERC20Permit, ERC20Votes {
     constructor() ERC20("Governance", "GVT") ERC20Permit("Governance") {}
 
