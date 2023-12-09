@@ -1,0 +1,15 @@
+.reviews-page {
+  background-color: #eef3f7;
+  padding: 3rem 4rem;
+  min-height: calc(100vh - 63px);
+}
+.review-cards-container {
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.review-cards-container > div {
+  flex: 1 1 400px;
+}

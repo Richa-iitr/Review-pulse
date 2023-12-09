@@ -286,6 +286,9 @@ a {
   line-height: 13.112px;
   text-transform: capitalize;
 }
+.Header_header__b6rsY {
+  z-index: 10000;
+}
 @media (width< 1000px) {
   :root {
     --ft-800: 32px;

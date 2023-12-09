@@ -43,11 +43,10 @@ const Header = () => {
               Home
             </Link>
           </li>
-          <li>
-            <Wallets />
-          </li>
+          <li></li>
         </ul>
       </nav>
+      <LogInWithAnonAadhaar />
     </header>
   );
 };

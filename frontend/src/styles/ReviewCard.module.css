@@ -1,0 +1,20 @@
+.review-card {
+  padding: 1rem;
+  background-color: #fff;
+  max-width: 400px;
+}
+.star-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: #999;
+}
+
+.review-card > h5 {
+  margin: 1rem 0;
+  font-size: var(--ft-400);
+  font-weight: 500;
+}
+.review-card > p {
+  color: #555;
+}
