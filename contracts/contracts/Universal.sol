@@ -1,17 +1,20 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.20;
 import "./interfaces.sol";
 import "./PopNFT.sol";
-import {ReviewToken} from "./ReviewToken.sol";
+import {ProofOfPurchaseNFT} from "./PopNFT.sol";
 
-contract Universal is ProofOfPurchaseNFT, ReviewToken {
-    address public owner;
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
+//linea: 0xb31EA32b27b3e28cF8369c121f6E2996f26e3277
+contract Universal  {
+    IERC20 public token = IERC20(0x257B7Bd2E932e7e6E8388EF934a77CD853522438);
+
+    mapping(uint256 => mapping(address => uint256)) popNfts;
     struct Product {
         string name;
         uint256 id;
         address nft;
-        mapping(address => address) popNfts;
     }
 
     //pdt id mapped with Product struct
@@ -21,8 +24,8 @@ contract Universal is ProofOfPurchaseNFT, ReviewToken {
     mapping(address => bool) private staked;
 
     //sign in with aadhar
-    function registerAadhar(string memory aadhar) public {
-        require(aadharToAddress[aadhar] == "0x", "not registered");
+    function registerAadhar(string calldata aadhar) public {
+        require(aadharToAddress[aadhar] == address(0x00), "not registered");
         aadharToAddress[aadhar] = msg.sender;
         addressToStakeamt[msg.sender] = 10000;
     }
@@ -32,23 +35,28 @@ contract Universal is ProofOfPurchaseNFT, ReviewToken {
         string memory name,
         uint256 id,
         address nft,
-        string aadhar
+        string memory aadhar
     ) public {
-        require(aadharToAddress[aadhar] != "0x", "not registered");
-        products[id] = Product(name, id, nft);
+        require(aadharToAddress[aadhar] != address(0x00), "not registered");
+        Product memory pdt;
+        pdt.name = name;
+        pdt.id = id;
+        pdt.nft = nft;
+        products[id] = pdt;
     }
 
-    function buyProduct(uint256 productId, address aadhar) public {
-        require(aadharToAddress[aadhar] != "0x", "not registered");
-        require(products[productId].popNfts[popNft] == false, "Already minted");
+    function buyProduct(uint256 productId, string calldata aadhar) public {
+        require(aadharToAddress[aadhar] != address(0x00), "not registered");
         address nft = products[productId].nft;
-        ProofOfPurchaseNFT(nft).mint(aadharToAddress[aadhar], productId);
-        products[productId].popNfts[popNft] = msg.sender;
+        IPopNFT(nft).mint(aadharToAddress[aadhar]);
+        uint256 tokenId = IPopNFT(nft).getTokenId();
+        popNfts[productId][msg.sender] = tokenId;
     }
 
-    function review(uint256 amount) public {
+    function review(uint256 amount, uint256 productId) public {
+
         require(
-            products[productId].popNfts[popNft] == msg.sender,
+            popNfts[productId][msg.sender] != 0,
             "not a verified buyer"
         );
         require(addressToStakeamt[msg.sender] >= amount, "not enough balance");
@@ -59,6 +67,6 @@ contract Universal is ProofOfPurchaseNFT, ReviewToken {
     function claim(uint256 amount) public {
         require(staked[msg.sender] == true, "not reviewed");
         addressToStakeamt[msg.sender] += amount;
-        transfer(msg.sender, amount);
+        token.transfer(msg.sender, amount);
     }
 }

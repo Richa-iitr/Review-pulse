@@ -1,29 +1,11 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.9;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-// the contracts inherits the erc20 and erc721 from openzeppelin 
-contract ReviewToken is ERC20{
-
-    address public owner;
-    
-    modifier onlyOwner() {
-        require(msg.sender == owner);
-        _;
+// 0x257B7Bd2E932e7e6E8388EF934a77CD853522438
+contract MyToken is ERC20 {
+    constructor() ERC20("ReviewToken", "RVT") {
+        _mint(msg.sender, 1000000 * (10 ** uint256(decimals())));
     }
-    constructor() ERC20("Universal", "UNI") {
-        _mint(msg.sender, 1000000000000000000000000000);
-    }
-
-    function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);
-    }
-
-    function transfer(address to, uint256 amount) public override returns (bool) {
-        _transfer(msg.sender, to, amount);
-        return true;
-    }
-
 }
