@@ -4,7 +4,7 @@ import { useWeb3Contract } from "react-moralis";
 import useWeb3 from "./useWeb3";
 import { ethers } from "ethers";
 
-const useDealClient = () => {
+const useUniversalContract = () => {
   const { userAccount } = useWeb3();
   const { runContractFunction, data, error, isLoading } = useWeb3Contract({});
   const registerAadhar = async (nullifier) => {
@@ -86,6 +86,32 @@ const useDealClient = () => {
     }
   };
 
+  const review = async (amount, productId) => {
+    const parameters = {
+      abi: abi.universal,
+      contractAddress: contractAddress.universal,
+      functionName: "review",
+      params: {
+        amount: "20000000000",
+        productId: "10",
+      },
+    };
+    try {
+      const response = await runContractFunction({
+        params: parameters,
+        onSuccess: (response) => {
+          console.log(response);
+        },
+        onError: (error) => {
+          console.log(error);
+        },
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getProducts = async (productId) => {
     const parameters = {
       abi: abi.universal,
@@ -110,6 +136,6 @@ const useDealClient = () => {
       console.log(error);
     }
   };
-  return { registerAadhar, getProducts };
+  return { registerAadhar, getProducts, addProduct, buyProduct, review };
 };
-export default useDealClient;
+export default useUniversalContract;
