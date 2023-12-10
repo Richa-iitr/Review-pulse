@@ -52,9 +52,9 @@ The algorithm calculates the revenue based on following:
 
 To deal with the problems associated with copying of previous trends we will use ZK Proofs for keeping the users reviews into a black box however verifying and incentivising them again. The model looks like - there are multiple rounds for token distribution. Let's say the governance DAO decides the number of reviews in each round as 'k', then there will be n/k rounds eligible for incentives where n is the number of developers at a certain time. Now the initial rounds are the ones with the maximum risk as there are no many examples or hints to learn from. So the people reviewing in the initial rounds will share a larger portion of the rewards from the pool. The people staking more are again putting more confidence and hence will share a larger share and the people falling in the majority are again the ones who should be rewarded. The governance decides on a weight system for these three categories. based on those weights the rewards are distributed at the end of the round. Also, no user can see the other reviews of a round. This ensures no intentional malicious behavior occurs and hence extra checks like slashing may not be required at this time. However , the user can see the analysis or the safe slider of the previous rounds and also the anonymous description of the reviews not the exact rating. This ensures safe purchase and trusted reviews. 
 
-```
-![d3 drawio(1)](https://github.com/Richa-iitr/Review-pulse/assets/76250660/6dd151f8-4911-4deb-abad-9f79d88d168a)
-```
+
+    ![d3 drawio(1)](https://github.com/Richa-iitr/Review-pulse/assets/76250660/6dd151f8-4911-4deb-abad-9f79d88d168a)
+
 
 ## DEPLOYMENTS
 - Graph:  https://github.com/Richa-iitr/Review-pulse-subgraph
