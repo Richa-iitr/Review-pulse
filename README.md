@@ -43,7 +43,6 @@ Whenver a user needs to purchase a product he goes to the product listing page a
 After the threshold of reviews decided by the DAO has reached, the claim button activates for the user and he can claim his awards along with restoring the RVT points. The highest NFT holders and incentives receivers can be the members of the DAO, who take decisions around the incentive distribution, thresholds decisions, sellers onboarding, revenue mechanisms etc. 
 
 ### ALGORITHM [NAIVE]
-![d3 drawio(1)](https://github.com/Richa-iitr/Review-pulse/assets/76250660/6dd151f8-4911-4deb-abad-9f79d88d168a)
 
 * This is a naive algorithm for rewards distribution which could be thought of and implemented the day we thought about it. Improvements to this can be done using game theory.
 The algorithm calculates the revenue based on following:
@@ -53,12 +52,22 @@ The algorithm calculates the revenue based on following:
 
 To deal with the problems associated with copying of previous trends we will use ZK Proofs for keeping the users reviews into a black box however verifying and incentivising them again. The model looks like - there are multiple rounds for token distribution. Let's say the governance DAO decides the number of reviews in each round as 'k', then there will be n/k rounds eligible for incentives where n is the number of developers at a certain time. Now the initial rounds are the ones with the maximum risk as there are no many examples or hints to learn from. So the people reviewing in the initial rounds will share a larger portion of the rewards from the pool. The people staking more are again putting more confidence and hence will share a larger share and the people falling in the majority are again the ones who should be rewarded. The governance decides on a weight system for these three categories. based on those weights the rewards are distributed at the end of the round. Also, no user can see the other reviews of a round. This ensures no intentional malicious behavior occurs and hence extra checks like slashing may not be required at this time. However , the user can see the analysis or the safe slider of the previous rounds and also the anonymous description of the reviews not the exact rating. This ensures safe purchase and trusted reviews. 
 
-**Example run:**
+```
+![d3 drawio(1)](https://github.com/Richa-iitr/Review-pulse/assets/76250660/6dd151f8-4911-4deb-abad-9f79d88d168a)
+```
 
+## DEPLOYMENTS
+- Graph:  https://github.com/Richa-iitr/Review-pulse-subgraph
+- Linea:
+- Base:
+- Arbitrum:
+- Mumbai:
+- Scroll:
 
 ## FUTURE WORKS
 - With the collaboration of service providers like e-commerce websites or sellers, we can get more better information regarding the products available, verified purchases or returns.
 - These incentives can include discounts, loyalty points, or other tangible benefits also.
 - Formalizing in detail the game theory algorithms for incentive mechanisms.
 - Expanding the aim from web2 web3 products and services to other services like tourism, airlines, consumer forums etc.
- https://github.com/Richa-iitr/Review-pulse-subgraph
+
+
