@@ -43,6 +43,8 @@ Whenver a user needs to purchase a product he goes to the product listing page a
 After the threshold of reviews decided by the DAO has reached, the claim button activates for the user and he can claim his awards along with restoring the RVT points. The highest NFT holders and incentives receivers can be the members of the DAO, who take decisions around the incentive distribution, thresholds decisions, sellers onboarding, revenue mechanisms etc. 
 
 ### ALGORITHM [NAIVE]
+![d3 drawio(1)](https://github.com/Richa-iitr/Review-pulse/assets/76250660/6dd151f8-4911-4deb-abad-9f79d88d168a)
+
 * This is a naive algorithm for rewards distribution which could be thought of and implemented the day we thought about it. Improvements to this can be done using game theory.
 The algorithm calculates the revenue based on following:
 - Time of review provision
