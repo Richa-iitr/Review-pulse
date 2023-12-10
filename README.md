@@ -59,10 +59,10 @@ To deal with the problems associated with copying of previous trends we will use
 ## DEPLOYMENTS
 - Graph:  https://github.com/Richa-iitr/Review-pulse-subgraph
 - Linea: 0xDA459963deDd16360C6c7F78996190CCe2b1CaE1 
-- Base:0xAC9939a63A0A7e7b19e423D62F18A49dBE20FC44 , 0xC9Ff36df6B91e14B15D401F7a6d75F899DBB16d3 , verified contract - ![link](https://goerli.basescan.org/address/0xC9Ff36df6B91e14B15D401F7a6d75F899DBB16d3#code)
+- Base:0xAC9939a63A0A7e7b19e423D62F18A49dBE20FC44 , 0xC9Ff36df6B91e14B15D401F7a6d75F899DBB16d3 , verified contract - [link](https://goerli.basescan.org/address/0xC9Ff36df6B91e14B15D401F7a6d75F899DBB16d3#code)
 - Arbitrum: 0x61Dc20D8caA9fC89F6D9af8CC2380c236e5A380b
-- Mumbai: verified contract ![link](https://mumbai.polygonscan.com/address/0xe266415a98178198e1cd3b53f63d294b406b1dbe#readContract)
-- Scroll: 0x61Dc20D8caA9fC89F6D9af8CC2380c236e5A380b, verified contract - ![link](https://sepolia-blockscout.scroll.io/address/0x61Dc20D8caA9fC89F6D9af8CC2380c236e5A380b#code)
+- Mumbai: verified contract [link](https://mumbai.polygonscan.com/address/0xe266415a98178198e1cd3b53f63d294b406b1dbe#readContract)
+- Scroll: 0x61Dc20D8caA9fC89F6D9af8CC2380c236e5A380b, verified contract - [link](https://sepolia-blockscout.scroll.io/address/0x61Dc20D8caA9fC89F6D9af8CC2380c236e5A380b#code)
 
 ## FUTURE WORKS
 - With the collaboration of service providers like e-commerce websites or sellers, we can get more better information regarding the products available, verified purchases or returns.
